@@ -1,3 +1,9 @@
+#audio files
+.mp3
+.wav
+
+#------Node .gitignore template-----#
+
 # Logs
 logs
 *.log

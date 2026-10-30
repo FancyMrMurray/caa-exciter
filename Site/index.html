@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface Basic</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="deck">
+        <div class="selection-waveform container"></div>
+        <div class="divisions container">
+            <button data-division="1">1</button>
+            <button data-division="2">2</button>
+            <button data-division="4">4</button>
+            <button data-division="8">8</button>
+            <button data-division="16">16</button>
+            <button data-division="32">32</button>
+            <button data-division="64">64</button>
+            <button data-division="128">128</button>
+        </div>
+        <div class="main-buttons container">
+            <button data-type="power">start</button>
+            <button data-type="sequencer">sequence</button>
+            <button data-type="window">window</button>
+            <div class="dropdown">
+                <button data-type="audioSelect">-select-</button>
+                <div class="dropdown-content"></div>
+            </div>
+            <canvas class="master-meter" width="50px" height="130px"></canvas>
+        </div>
+        <div class="display-waveform container"></div>
+    </div> 
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>

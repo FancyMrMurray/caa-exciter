@@ -1,0 +1,253 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    min-width: 99vw;
+    min-height: 99vh;
+    background-color: #0a0a0a;
+
+    font-family: 'Courier New', Courier, monospace;
+    color: #fafafa;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 12pt;
+    margin: 0;
+}
+
+/*============= wrapper classes ==========*/
+.horiz-wrapper {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar {
+    height: min(50px, 10vh);
+    width: 100%;
+}
+
+.status {
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+.deck {
+    height: calc(90vh - min(50px, 10vh));
+}
+
+.controls-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.controls-top-section {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+
+    justify-content: space-around;
+    align-items: center;
+}
+
+.divisions {
+    width: 50%;
+    display: flex;
+    flex-flow: row wrap;
+}
+.divisions button {
+    width: 25%;
+    aspect-ratio: 1 / 1;
+    padding: 0;
+    margin: 0;
+}
+
+.master-controls {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+.controls-bottom-section {
+    display: flex;
+    flex-direction: row;
+}
+.filter-controls {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+.filter-sliders {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.waveforms-wrapper {
+    width: max(60%, 400px);
+    height: 100%;
+}
+
+.selector-waveform {
+    height: 40%;
+}
+
+.display-waveform {
+    height: 60%;
+}
+
+
+/*======= controls =======*/
+.button {
+    color: #fafafa;
+    background-color: #1a1a1a;
+    width: auto;
+    margin: 1vh;
+}
+.button:hover, .button:focus {
+    background-color: #3a3a3a;
+}
+
+.deck-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.deck-dropdown-button {
+    width: 100%;
+}
+
+.deck-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background-color: #3a3a3a;
+    z-index: 2;
+}
+
+.deck-dropdown-menu.show {
+    display: block;
+}
+
+.deck-dropdown-item {
+    color: #fafafa;
+    background-color: #1a1a1a;
+    width: 100%;
+    text-align: left;
+}
+
+.deck-dropdown-item:hover,
+.deck-dropdown-item:focus {
+    background-color: #3a3a3a;
+}
+
+.on {
+    color: green;
+}
+.off {
+    color: red;
+}
+
+input[type=range] {
+    -webkit-appearance: none;   /* Hides the slider so that custom slider can be made */
+    flex: 1 1 0;                /* share row width evenly; use gap on the parent for spacing instead of per-input % + padding */
+    background: transparent;    /* Otherwise white in Chrome */
+    writing-mode: vertical-lr;
+    direction: rtl;
+    vertical-align: middle;
+}
+
+.deck-range-control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-width: 0;
+}
+
+.deck-range-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.deck-range-input {
+    width: 100%;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #3a3a3a;
+    height: 10px;
+    width: 30px;
+    background: #0a0a0a;
+    cursor: pointer;
+    margin-left: 0;
+    margin-right: 0;
+}
+input[type=range]::-moz-range-thumb {
+    border: 1px solid #3a3a3a;
+    height: 10px;
+    width: 30px;
+    background: #cacaca;
+    cursor: pointer;
+    margin-left: 0;
+    margin-right: 0;
+}
+input[type=range]::-ms-thumb {
+    border: 1px solid #3a3a3a;
+    height: 10px;
+    width: 30px;
+    background: #cacaca;
+    cursor: pointer;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 10px;
+    height: 100%;
+    cursor: pointer;
+    background: #fafafa;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background-color: #cacaca;
+}
+input[type=range]::-moz-range-track {
+    width: 10px;
+    height: 100%;
+    cursor: pointer;
+    background: #fafafa;
+}
+input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+/*Still needs -ms-fill-lower and -ms-fill-upper and focus for both*/
+
+input[type=range]:focus {
+    outline: none;
+}
+
+/*======= dropdowns (audio select + filter type select) =======*/
+
+/* The container */
+.dropdown-content {
+    position: relative;
+    display: inline-block;
+}
+
+.show { display: block; }
